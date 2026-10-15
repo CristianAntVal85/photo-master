@@ -20,22 +20,22 @@
             <ul class="nav navbar-nav">
 
               <!-- HOME -->
-              <li class="<?= esOpcionMenuActiva('/index.php') ? 'active lien' : 'lien' ?>">
+              <li class="<?= Utils::esOpcionMenuActiva('/index.php') ? 'active lien' : 'lien' ?>">
                 <a href="/index.php"><i class="fa fa-home sr-icons"></i> Home</a>
               </li>
 
               <!-- ABOUT -->
-              <li class="<?= esOpcionMenuActiva('/about.php') ? 'active lien' : 'lien' ?>">
+              <li class="<?= Utils::esOpcionMenuActiva('/about.php') ? 'active lien' : 'lien' ?>">
                 <a href="/about.php"><i class="fa fa-bookmark sr-icons"></i> About</a>
               </li>
 
               <!-- BLOG -->
-              <li class="<?= esOpcionMenuActiva('/blog.php') ? 'active lien' : 'lien' ?>">
+              <li class="<?= Utils::esOpcionMenuActiva('/blog.php') ? 'active lien' : 'lien' ?>">
                 <a href="/blog.php"><i class="fa fa-file-text sr-icons"></i> Blog</a>
               </li>
 
               <!-- CONTACT -->
-              <li class="<?= esOpcionMenuActiva('/contact.php') ? 'active lien' : 'lien' ?>">
+              <li class="<?= Utils::esOpcionMenuActiva('/contact.php') ? 'active lien' : 'lien' ?>">
                 <a href="/contact.php"><i class="fa fa-phone-square sr-icons"></i> Contact</a>
               </li>
             </ul>
