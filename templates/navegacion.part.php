@@ -1,3 +1,7 @@
+<?php 
+  require_once __DIR__ . '/../src/utils/utils.class.php'; 
+?> 
+
 <!-- Navigation Bar -->
    <nav class="navbar navbar-fixed-top navbar-default">
      <div class="container">
@@ -14,10 +18,26 @@
          </div>
          <div class="collapse navbar-collapse navbar-right" id="menu">
             <ul class="nav navbar-nav">
-              <li class="active lien"><a href="#"><i class="fa fa-home sr-icons"></i> Home</a></li>
-              <li class=" lien"><a href="about.html"><i class="fa fa-bookmark sr-icons"></i> About</a></li>
-              <li class=" lien"><a href="blog.html"><i class="fa fa-file-text sr-icons"></i> Blog</a></li>
-              <li><a href="contact.html"><i class="fa fa-phone-square sr-icons"></i> Contact</a></li>
+
+              <!-- HOME -->
+              <li class="<?= esOpcionMenuActiva('/index.php') ? 'active lien' : 'lien' ?>">
+                <a href="/index.php"><i class="fa fa-home sr-icons"></i> Home</a>
+              </li>
+
+              <!-- ABOUT -->
+              <li class="<?= esOpcionMenuActiva('/about.php') ? 'active lien' : 'lien' ?>">
+                <a href="/about.php"><i class="fa fa-bookmark sr-icons"></i> About</a>
+              </li>
+
+              <!-- BLOG -->
+              <li class="<?= esOpcionMenuActiva('/blog.php') ? 'active lien' : 'lien' ?>">
+                <a href="/blog.php"><i class="fa fa-file-text sr-icons"></i> Blog</a>
+              </li>
+
+              <!-- CONTACT -->
+              <li class="<?= esOpcionMenuActiva('/contact.php') ? 'active lien' : 'lien' ?>">
+                <a href="/contact.php"><i class="fa fa-phone-square sr-icons"></i> Contact</a>
+              </li>
             </ul>
          </div>
      </div>
