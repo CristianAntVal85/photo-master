@@ -21,22 +21,22 @@
 
               <!-- HOME -->
               <li class="<?= Utils::esOpcionMenuActiva('/index.php') ? 'active lien' : 'lien' ?>">
-                <a href="/index.php"><i class="fa fa-home sr-icons"></i> Home</a>
+                <a href="/templates/index.php"><i class="fa fa-home sr-icons"></i> Home</a>
               </li>
 
               <!-- ABOUT -->
               <li class="<?= Utils::esOpcionMenuActiva('/about.php') ? 'active lien' : 'lien' ?>">
-                <a href="/about.php"><i class="fa fa-bookmark sr-icons"></i> About</a>
+                <a href="/templates/about.php"><i class="fa fa-bookmark sr-icons"></i> About</a>
               </li>
 
               <!-- BLOG -->
               <li class="<?= Utils::esOpcionMenuActiva('/blog.php') ? 'active lien' : 'lien' ?>">
-                <a href="/blog.php"><i class="fa fa-file-text sr-icons"></i> Blog</a>
+                <a href="/templates/blog.php"><i class="fa fa-file-text sr-icons"></i> Blog</a>
               </li>
 
               <!-- CONTACT -->
               <li class="<?= Utils::esOpcionMenuActiva('/contact.php') ? 'active lien' : 'lien' ?>">
-                <a href="/contact.php"><i class="fa fa-phone-square sr-icons"></i> Contact</a>
+                <a href="/templates/contact.php"><i class="fa fa-phone-square sr-icons"></i> Contact</a>
               </li>
             </ul>
          </div>

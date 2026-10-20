@@ -124,30 +124,9 @@
       <!-- End of Pricing Tables -->
 
       <!-- Clients Feedback -->
-        <div class="row feedback text-center">
-           <h3>CLIENTS FEEDBACK</h3>
-           <hr>
-           <div class="col-xs-12 col-sm-3">
-             <img class="img-responsive" src="images/clients/client1.jpg" alt="client's picture">
-             <h5>MISS BELLA</h5>
-             <q>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</q>
-           </div>
-           <div class="col-xs-12 col-sm-3">
-             <img class="img-responsive" src="images/clients/client2.jpg" alt="client's picture">
-             <h5>DON PENO</h5>
-             <q>Tempora ea ratione vel nisi, qui perferendis nulla, fugit aut, beatae, tempore modi.</q>
-           </div>
-           <div class="col-xs-12 col-sm-3">
-             <img class="img-responsive" src="images/clients/client3.jpg" alt="client's picture">
-             <h5>SWEETY</h5>
-             <q>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</q>
-           </div>
-           <div class="col-xs-12 col-sm-3">
-             <img class="img-responsive" src="images/clients/client4.jpg" alt="client's picture">
-             <h5>LADY</h5>
-             <q>Tempora ea ratione vel nisi, qui perferendis nulla, fugit aut, beatae, tempore modi.</q>
-           </div>
-        </div>
+      <?php
+      require_once __DIR__ .'/../imagenCliente.part.php';
+      ?>
       <!-- End of Clients Feedback --> 
        
       </div>
