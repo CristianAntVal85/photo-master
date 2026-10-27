@@ -1,5 +1,5 @@
 <?php 
-  require_once __DIR__ . '/../src/utils/utils.class.php'; 
+  require_once __DIR__ . '/../src/utils/Utils.class.php'; 
 ?> 
 
 <!-- Navigation Bar -->
@@ -37,6 +37,11 @@
               <!-- CONTACT -->
               <li class="<?= Utils::esOpcionMenuActiva('/contact.php') ? 'active lien' : 'lien' ?>">
                 <a href="/templates/contact.php"><i class="fa fa-phone-square sr-icons"></i> Contact</a>
+              </li>
+
+              <!-- GALERY -->
+              <li class="<?= Utils::esOpcionMenuActiva('/galery.php') ? 'active lien' : 'lien' ?>">
+                <a href="/templates/galery.php"><i class="fa fa-phone-square sr-icons"></i> Galery</a>
               </li>
             </ul>
          </div>

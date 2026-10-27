@@ -1,5 +1,5 @@
 <?php 
-require_once __DIR__ . '/../src/utils/entity/imagen.class.php';
+require_once __DIR__ . '/../src/utils/entity/Imagen.class.php';
 
 $imagenesHome = [
     new Imagen(

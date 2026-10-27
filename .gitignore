@@ -1,2 +1,14 @@
 /public
 *.jpg
+
+!/public/
+/public/*
+!/public/images/
+/public/images/*
+!/public/images/index/
+/public/images/index/*
+!/public/images/index/gallery/
+/public/images/index/gallery/*
+!/public/images/index/gallery/subidas/
+/public/images/index/gallery/subidas/*
+!/public/images/index/gallery/subidas/.gitkeep
