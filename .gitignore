@@ -12,3 +12,8 @@
 !/public/images/index/gallery/subidas/
 /public/images/index/gallery/subidas/*
 !/public/images/index/gallery/subidas/.gitkeep
+!/public/images/asociados/
+/public/images/asociados/*
+!/public/images/asociados/log1.jpg
+!/public/images/asociados/log2.jpg
+!/public/images/asociados/log3.jpg

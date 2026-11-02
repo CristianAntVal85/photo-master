@@ -1,5 +1,7 @@
 <?php 
 require_once __DIR__ . '/../src/utils/entity/Imagen.class.php';
+require_once __DIR__ . '/../src/utils/entity/asociado.class.php';
+require_once __DIR__ . '/../src/utils/Utils.class.php';
 
 $imagenesHome = [
     new Imagen(
@@ -63,5 +65,28 @@ $imagenesHome = [
         "portfolio"
     )
 ];
+
+$asociadosHome = [
+    new Asociado(
+        "First Partner Name",
+        "log2.jpg",
+        "Logo de First Partner Name"
+    ),
+    new Asociado(
+        "Second Partner Name",
+        "log1.jpg",
+        "Logo de Second Partner Name"
+    ),
+    new Asociado(
+        "Third Partner Name",
+        "log3.jpg",
+        "Logo de Third Partner Name"
+    )
+];
+
+$asociadosHomeAleatorios = Utils::extraeElementosAleatorios($asociadosHome, 3);
+if ($asociadosHomeAleatorios === null) {
+    throw new RuntimeException('No se pudieron seleccionar los asociados del Home.');
+}
 
 require_once __DIR__ . '/views/index.view.php';

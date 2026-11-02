@@ -43,6 +43,11 @@
               <li class="<?= Utils::esOpcionMenuActiva('/galery.php') ? 'active lien' : 'lien' ?>">
                 <a href="/templates/galery.php"><i class="fa fa-phone-square sr-icons"></i> Galery</a>
               </li>
+
+              <!-- ASOCIADOS -->
+              <li class="<?= Utils::esOpcionMenuActiva('/Asociados.php') ? 'active lien' : 'lien' ?>">
+                <a href="/templates/Asociados.php"><i class="fa fa-handshake-o sr-icons"></i> Registrar asociado</a>
+              </li>
             </ul>
          </div>
      </div>

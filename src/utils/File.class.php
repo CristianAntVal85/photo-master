@@ -5,6 +5,7 @@ class File
 { 
     private $file;  // Contenido del fichero que se sube al servidor 
     private $fileName; // Nombre del fichero 
+    private $fileType;
  
     // Se pasa el nombre del fichero y una lista con los tipos de archivos que acepta la clase. 
 
@@ -15,18 +16,20 @@ class File
     */ 
     public function __construct (string $fileName, array $arrTypes) 
     { 
+        if (!isset($_FILES[$fileName]) || !is_array($_FILES[$fileName])) {
+            throw new FileException('Debes seleccionar un fichero');
+        }
+
         $this->file = $_FILES[$fileName]; // $_FILES guarda los datos que se envían en forma de fichero 
         $this->fileName=''; 
- 
-        if(!isset($this->file)) // Comprobar si ya existe el fichero 
-        { 
-            throw new FileException('Debes seleccionar un fichero');
-        } 
  
         if ( $this->file['error'] !== UPLOAD_ERR_OK ) // Si se ha producido algún error en la subida 
         { 
             switch ($this->file['error']) 
             { 
+                case UPLOAD_ERR_NO_FILE:
+                    throw new FileException('Debes seleccionar un fichero');
+
                 case UPLOAD_ERR_INI_SIZE: 
                 case UPLOAD_ERR_FORM_SIZE: 
 
@@ -44,8 +47,15 @@ class File
             } 
         } 
  
-        // Comprobar si los archivos pasados son de un tipo admitido 
-        if (in_array($this->file['type'], $arrTypes) === false)
+        if (!is_uploaded_file($this->file['tmp_name'])) {
+            throw new FileException('El archivo no ha sido subido mediante un formulario.');
+        }
+
+        $finfo = new finfo(FILEINFO_MIME_TYPE);
+        $this->fileType = $finfo->file($this->file['tmp_name']);
+
+        // Comprobar el tipo real del fichero, no el MIME enviado por el navegador.
+        if ($this->fileType === false || in_array($this->fileType, $arrTypes, true) === false)
             throw new FileException('Tipo de fichero no soportado');
         
     } 
@@ -57,22 +67,47 @@ class File
      */
     public function saveUploadFile(string $rutaDestino)
     {
-        // Primero hay que comprobar que el fichero se ha subido desde el formulario.
-        // Hay un tipo de ataques que intenta acceder a archivos del SO.
         if (is_uploaded_file($this->file['tmp_name']) === false) {
             throw new FileException('El archivo no ha sido subido mediante un formulario.');
         }
 
-        $this->fileName = $this->file['name'];
-        $rutaDirectorio = rtrim($_SERVER['DOCUMENT_ROOT'], '/') . '/' . trim($rutaDestino, '/') . '/';
+        $extensionesPorTipo = [
+            'image/jpeg' => 'jpg',
+            'image/png' => 'png',
+            'image/gif' => 'gif',
+        ];
+        if (!isset($extensionesPorTipo[$this->fileType])) {
+            throw new FileException('Tipo de fichero no soportado');
+        }
+
+        $documentRoot = $_SERVER['DOCUMENT_ROOT'] ?? '';
+        if ($documentRoot === '') {
+            throw new FileException('No se ha podido determinar la ruta de destino');
+        }
+
+        $rutaDirectorio = rtrim($documentRoot, '/') . '/' . trim($rutaDestino, '/') . '/';
+        if (!is_dir($rutaDirectorio) && !mkdir($rutaDirectorio, 0755, true) && !is_dir($rutaDirectorio)) {
+            throw new FileException('No se ha podido crear el directorio de destino');
+        }
+
+        $nombreBase = pathinfo(basename(str_replace('\\', '/', $this->file['name'])), PATHINFO_FILENAME);
+        $nombreBase = trim((string) preg_replace('/[^a-zA-Z0-9_-]+/', '_', $nombreBase), '_-');
+        if ($nombreBase === '') {
+            $nombreBase = 'logo';
+        }
+
+        $extension = $extensionesPorTipo[$this->fileType];
+        $this->fileName = $nombreBase . '.' . $extension;
         $ruta = $rutaDirectorio . $this->fileName;
 
         // Comprobamos si ya existe el fichero.
         if (is_file($ruta) === true) {
-            // Generamos un nombre aleatorio.
-            $idUnico = time();
-            $this->fileName = $idUnico . "_" . $this->fileName;
+            $this->fileName = $nombreBase . '_' . bin2hex(random_bytes(6)) . '.' . $extension;
             $ruta = $rutaDirectorio . $this->fileName;
+        }
+
+        if (is_file($ruta)) {
+            throw new FileException('No se ha podido generar un nombre de fichero único');
         }
 
         if (move_uploaded_file($this->file['tmp_name'], $ruta) === false) {
