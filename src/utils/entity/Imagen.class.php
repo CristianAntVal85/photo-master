@@ -1,6 +1,8 @@
 <?php
 
-class Imagen {
+require_once __DIR__ . '/IEntity.php';
+
+class Imagen implements IEntity {
 
     /**
      * @var int
@@ -218,5 +220,23 @@ class Imagen {
     public function getUrlImagenes(): string
     {
         return self::RUTA_IMAGENES_SUBIDAS . $this->getNombre();
+    }
+
+    /**
+     * Convierte la entidad a un array asociativo para operaciones en la base de datos
+     *
+     * @return array
+     */
+    public function toArray(): array 
+    { 
+        return [ 
+            'id' => $this->getId(), 
+            'nombre' => $this->getNombre(), 
+            'descripcion' => $this->getDescripcion(), 
+            'numVisualizaciones' => $this->getNumVisualizaciones(), 
+            'numLikes' => $this->getNumLikes(), 
+            'numDownloads' => $this->getNumDownloads(), 
+            'categoria' => $this->getCategoria() 
+        ]; 
     }
 }

@@ -32,14 +32,14 @@ ON DUPLICATE KEY UPDATE `nombre`=VALUES(`nombre`);
 CREATE TABLE IF NOT EXISTS `imagenes` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
-  `descripción` text COLLATE utf8_spanish_ci DEFAULT NULL,
-  `categoría` int(11) NOT NULL DEFAULT 1,
+  `descripcion` text COLLATE utf8_spanish_ci DEFAULT NULL,
+  `categoria` int(11) NOT NULL DEFAULT 1,
   `numVisualizaciones` int(11) NOT NULL DEFAULT 0,
-  `nunLikes` int(11) NOT NULL DEFAULT 0,
+  `numLikes` int(11) NOT NULL DEFAULT 0,
   `numDownloads` int(11) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`),
-  KEY `fk_imagenes_categorias` (`categoría`),
-  CONSTRAINT `fk_imagenes_categorias` FOREIGN KEY (`categoría`) REFERENCES `categorias` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  KEY `fk_imagenes_categorias` (`categoria`),
+  CONSTRAINT `fk_imagenes_categorias` FOREIGN KEY (`categoria`) REFERENCES `categorias` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 -- --------------------------------------------------------
@@ -50,6 +50,6 @@ CREATE TABLE IF NOT EXISTS `asociados` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
   `logo` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
-  `descripción` text COLLATE utf8_spanish_ci DEFAULT NULL,
+  `descripcion` text COLLATE utf8_spanish_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;

@@ -1,6 +1,8 @@
 <?php
 
-class Asociado {
+require_once __DIR__ . '/IEntity.php';
+
+class Asociado implements IEntity {
 
     /**
      * @var int
@@ -92,5 +94,20 @@ class Asociado {
     public function __toString(): string
     {
         return $this->descripcion;
+    }
+
+    /**
+     * Convierte la entidad a un array asociativo para operaciones en la base de datos
+     *
+     * @return array
+     */
+    public function toArray(): array
+    {
+        return [
+            'id' => $this->getId(),
+            'nombre' => $this->getNombre(),
+            'logo' => $this->getLogo(),
+            'descripcion' => $this->getDescripcion()
+        ];
     }
 }

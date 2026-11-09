@@ -1,54 +1,47 @@
-<?php 
+<?php
+
+require_once __DIR__ . '/../core/App.php';
 require_once __DIR__ . '/../src/utils/File.class.php';
 require_once __DIR__ . '/../src/utils/exceptions/FileException.class.php';
 require_once __DIR__ . '/../src/utils/exceptions/QueryException.php';
+require_once __DIR__ . '/../src/exceptions/AppException.class.php';
 require_once __DIR__ . '/../src/utils/entity/Imagen.class.php';
-require_once __DIR__ . '/../src/database/Connection.class.php';
-require_once __DIR__ . '/../src/database/QueryBuilder.php';
+require_once __DIR__ . '/../src/repository/ImagenesRepository.php';
 
-$errores = []; 
-$titulo = '';
-$descripcion = ''; 
-$mensaje = ''; 
+$errores = [];
+$titulo = "";
+$descripcion = "";
+$mensaje = "";
 $imagenes = [];
 
-try { 
-    $conexion = Connection::make(); 
+try {
+    $config = require_once __DIR__ . '/../app/config.php';
+    App::bind('config', $config); // Guardamos la configuración en el contenedor de servicios
 
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') 
-    { 
+    $imagenesRepository = new ImagenesRepository();
+    $imagenes = $imagenesRepository->findAll();
+
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $titulo = trim(htmlspecialchars($_POST['titulo'] ?? ''));
-        $descripcion = trim(htmlspecialchars($_POST['descripcion'] ?? '')); 
-        $tiposAceptados = ['image/jpeg','image/gif','image/png']; 
-        $imagen = new File('imagen', $tiposAceptados); // El nombre 'imagen' es el que se ha puesto en el formulario de galery.view.php 
-        $imagen->saveUploadFile(Imagen::RUTA_IMAGENES_SUBIDAS); 
+        $descripcion = trim(htmlspecialchars($_POST['descripcion'] ?? ''));
+        $tiposAceptados = ['image/jpeg', 'image/gif', 'image/png'];
+        $imagen = new File('imagen', $tiposAceptados); // El nombre 'imagen' es el que se ha puesto en el formulario de galery.view.php
+        $imagen->saveUploadFile(Imagen::RUTA_IMAGENES_SUBIDAS);
 
-        // Inserción de la nueva imagen en la base de datos
-        $sql = "INSERT INTO imagenes (nombre, descripcion, categoria) VALUES (:nombre,:descripcion,:categoria)"; 
-        $pdoStatement = $conexion->prepare($sql); 
-        $parametros = [
-            ':nombre' => $imagen->getFileName(), 
-            ':descripcion' => $descripcion, 
-            ':categoria' => '1'
-        ]; 
+        $imagenGaleria = new Imagen($imagen->getFileName(), $descripcion);
+        $imagenesRepository->save($imagenGaleria);
 
-        if ($pdoStatement->execute($parametros) === false) {
-            $errores[] = "No se ha podido guardar la imagen en la base de datos"; 
-        } else {
-            $descripcion = ""; 
-            $mensaje = "Se ha guardado la imagen correctamente"; 
-        }
-    } 
-
-    // Recuperamos todas las imágenes registradas en la base de datos mapeadas a objetos Imagen
-    $queryBuilder = new QueryBuilder($conexion); 
-    $imagenes = $queryBuilder->findAll('imagenes', 'Imagen'); 
-} 
-catch (FileException $fileException) { 
-    $errores[] = $fileException->getMessage(); 
-} 
-catch (QueryException $queryException) { 
-    $errores[] = $queryException->getMessage(); 
-} 
+        $mensaje = "Se ha guardado la imagen correctamente";
+        $descripcion = "";
+        $titulo = "";
+        $imagenes = $imagenesRepository->findAll();
+    }
+} catch (FileException $fileException) {
+    $errores[] = $fileException->getMessage();
+} catch (QueryException $queryException) {
+    $errores[] = $queryException->getMessage();
+} catch (AppException $appException) {
+    $errores[] = $appException->getMessage();
+}
 
 require_once __DIR__ . '/views/galery.view.php';
