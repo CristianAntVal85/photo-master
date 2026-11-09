@@ -209,4 +209,14 @@ class Imagen {
     {
         return self::RUTA_IMAGENES_CLIENTES . $this->getNombre();
     }
+
+    /**
+     * Devuelve la ruta pública de la imagen en la galería subida
+     *
+     * @return string
+     */
+    public function getUrlImagenes(): string
+    {
+        return self::RUTA_IMAGENES_SUBIDAS . $this->getNombre();
+    }
 }
