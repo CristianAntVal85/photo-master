@@ -2,6 +2,7 @@
 
 require_once __DIR__ . '/../../core/App.php';
 require_once __DIR__ . '/../utils/exceptions/QueryException.php';
+require_once __DIR__ . '/../exceptions/NotFoundException.php';
 require_once __DIR__ . '/../entity/IEntity.php';
 
 abstract class QueryBuilder
@@ -36,15 +37,49 @@ abstract class QueryBuilder
     }
 
     /**
-     * Selecciona todos los registros de la tabla configurada y
-     * los devuelve mapeados en un array de instancias de classEntity
+     * Función que devuelve todos los registros de la tabla configurada
+     * como un array de objetos de la clase classEntity.
      *
      * @return array
      * @throws QueryException
      */
     public function findAll(): array
     {
-        $sql = "SELECT * FROM {$this->table}";
+        $sql = "SELECT * FROM $this->table";
+
+        return $this->executeQuery($sql);
+    }
+
+    /**
+     * Busca y devuelve una entidad por su ID
+     *
+     * @param int $id
+     * @return IEntity
+     * @throws NotFoundException
+     * @throws QueryException
+     */
+    public function find(int $id): IEntity
+    {
+        $sql = "SELECT * FROM $this->table WHERE id=$id";
+
+        $result = $this->executeQuery($sql);
+
+        if (empty($result)) {
+            throw new NotFoundException("No se ha encontrado ningún elemento con id $id.");
+        }
+
+        return $result[0]; // La consulta devolverá un array con 1 solo elemento.
+    }
+
+    /**
+     * Ejecuta una sentencia SQL y mapea el resultado a instancias de la entidad
+     *
+     * @param string $sql
+     * @return array
+     * @throws QueryException
+     */
+    private function executeQuery(string $sql): array
+    {
         $pdoStatement = $this->connection->prepare($sql);
         if ($pdoStatement->execute() === false) {
             throw new QueryException("No se ha podido ejecutar la query solicitada.");

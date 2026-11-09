@@ -42,7 +42,7 @@ class Imagen implements IEntity {
     public function __construct(
         $nombre = "",
         $descripcion = "",
-        $categoria = "",
+        $categoria = 1,
         $numVisualizaciones = 0,
         $numLikes = 0,
         $numDownloads = 0
