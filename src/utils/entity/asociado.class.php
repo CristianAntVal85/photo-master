@@ -25,10 +25,11 @@ class Asociado {
     public const RUTA_LOGOS_ASOCIADOS = '/public/images/asociados';
 
     public function __construct(
-        $nombre,
-        $logo,
-        $descripcion
+        $nombre = "",
+        $logo = "",
+        $descripcion = ""
     ) {
+        $this->id = null;
         $this->nombre = $nombre;
         $this->logo = $logo;
         $this->descripcion = $descripcion;

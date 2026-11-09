@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__ . '/../src/utils/File.class.php';
 require_once __DIR__ . '/../src/utils/entity/asociado.class.php';
+require_once __DIR__ . '/../src/database/Connection.class.php';
 
 $errores = [];
 $nombre = '';
@@ -33,7 +34,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (empty($errores)) {
             $logo->saveUploadFile(Asociado::RUTA_LOGOS_ASOCIADOS);
             $asociado = new Asociado($nombre, $logo->getFileName(), $descripcion);
-            $mensaje = 'El asociado se ha registrado correctamente.';
+
+            $conexion = Connection::make();
+            $sql = "INSERT INTO asociados (nombre, logo, descripcion) VALUES (:nombre, :logo, :descripcion)";
+            $pdoStatement = $conexion->prepare($sql);
+            $parametros = [
+                ':nombre' => $nombre,
+                ':logo' => $logo->getFileName(),
+                ':descripcion' => $descripcion
+            ];
+
+            if ($pdoStatement->execute($parametros) === false) {
+                $errores[] = "No se ha podido guardar el asociado en la base de datos";
+            } else {
+                $nombre = "";
+                $descripcion = "";
+                $mensaje = "El asociado se ha registrado correctamente.";
+            }
         }
     } catch (FileException $fileException) {
         $errores[] = $fileException->getMessage();

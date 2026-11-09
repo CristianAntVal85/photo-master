@@ -38,13 +38,14 @@ class Imagen {
     private $numDownloads;
 
     public function __construct(
-        $nombre,
-        $descripcion,
-        $categoria,
+        $nombre = "",
+        $descripcion = "",
+        $categoria = "",
         $numVisualizaciones = 0,
         $numLikes = 0,
         $numDownloads = 0
     ) {
+        $this->id = null;
         $this->nombre = $nombre;
         $this->descripcion = $descripcion;
         $this->categoria = $categoria;
@@ -56,7 +57,7 @@ class Imagen {
     /**
      * @return int
      */
-    public function getId(): int
+    public function getId()
     {
         return $this->id;
     }
