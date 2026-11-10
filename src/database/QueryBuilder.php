@@ -117,4 +117,68 @@ abstract class QueryBuilder
             throw new QueryException("Error al insertar en la base de datos.");
         }
     }
+
+    /**
+     * Ejecuta una serie de operaciones en una transacción atómica
+     *
+     * @param callable $fnExecuteQuerys
+     * @return void
+     * @throws QueryException
+     */
+    public function executeTransaction(callable $fnExecuteQuerys)
+    {
+        try {
+            $this->connection->beginTransaction();
+            $fnExecuteQuerys(); // Llamamos a todas las consultas SQL de la transacción
+            $this->connection->commit();
+        } catch (PDOException $pdoException) {
+            $this->connection->rollBack(); // Se deshacen todos los cambios desde beginTransaction()
+            throw new QueryException("No se ha podido realizar la operación.");
+        }
+    }
+
+    /**
+     * Construye la cadena de asignación para la sentencia UPDATE
+     *
+     * @param array $parameters
+     * @return string
+     */
+    public function getUpdates(array $parameters)
+    {
+        $updates = '';
+        foreach ($parameters as $key => $value) {
+            if ($key !== 'id') {
+                if ($updates !== '') {
+                    $updates .= ", ";
+                }
+                $updates .= $key . '=:' . $key;
+            }
+        }
+        return $updates;
+    }
+
+    /**
+     * Actualiza una entidad en la base de datos
+     *
+     * @param IEntity $entity
+     * @return void
+     * @throws QueryException
+     */
+    public function update(IEntity $entity): void
+    {
+        try {
+            $parameters = $entity->toArray();
+
+            $sql = sprintf(
+                'UPDATE %s SET %s WHERE id=:id',
+                $this->table,
+                $this->getUpdates($parameters)
+            );
+
+            $statement = $this->connection->prepare($sql);
+            $statement->execute($parameters);
+        } catch (PDOException $pdoException) {
+            throw new QueryException("No se ha podido actualizar el elemento con id " . $parameters['id']);
+        }
+    }
 }

@@ -44,7 +44,7 @@ try {
         $imagen->saveUploadFile(Imagen::RUTA_IMAGENES_SUBIDAS);
 
         $imagenGaleria = new Imagen($imagen->getFileName(), $descripcion, $categoria);
-        $imagenesRepository->save($imagenGaleria);
+        $imagenesRepository->guarda($imagenGaleria);
 
         $mensaje = "Se ha guardado la imagen correctamente";
         $descripcion = "";
