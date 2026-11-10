@@ -1,6 +1,5 @@
 <?php
-require_once __DIR__ . '/views/about.view.php';
-require_once __DIR__ . '/../src/utils/entity/Imagen.class.php';
+require_once __DIR__ . '/../../src/utils/entity/Imagen.class.php';
 
 /**
  * @var Imagen[]
@@ -26,5 +25,6 @@ $imagenesClientes = [
         "LADY",
         "Cliente"
     ),
-]
-?>
+];
+
+require_once __DIR__ . '/../views/about.view.php';

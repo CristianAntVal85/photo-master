@@ -12,18 +12,13 @@ class Utils {
         return array_slice($lista, 0, $cantidad);
     }
 
-    public static function esOpcionMenuActiva($opcion): bool 
-    { 
-        $actual = explode('/',$_SERVER['REQUEST_URI']); 
-        $actual = '/'.$actual[count($actual)-1];
+    public static function esOpcionMenuActiva(string $opcion): bool
+    {
+        $rutaActual = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);
+        $rutaActual = '/' . trim(is_string($rutaActual) ? $rutaActual : '', '/');
+        $opcion = '/' . trim($opcion, '/');
 
-        if ( $actual === $opcion) { 
-            return true; 
-        } 
-        else { 
-            return false; 
-        } 
-    
-    } 
+        return $rutaActual === $opcion;
+    }
 }
 ?>

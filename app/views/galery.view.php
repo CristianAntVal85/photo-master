@@ -1,6 +1,6 @@
 <?php
-require_once __DIR__. '/../inicio.part.php';
-require_once __DIR__. '/../navegacion.part.php';
+require_once __DIR__ . '/inicio.part.php';
+require_once __DIR__ . '/navegacion.part.php';
 ?>
 <div class="hero hero-inner">
     <div class="container">
@@ -103,4 +103,4 @@ require_once __DIR__. '/../navegacion.part.php';
     </div>
 </div>
 <?php
-require_once __DIR__. '/../fin.part.php';
+require_once __DIR__ . '/fin.part.php';

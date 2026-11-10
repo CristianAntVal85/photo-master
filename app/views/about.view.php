@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php
-  require_once __DIR__ . '/../inicio.part.php';
+  require_once __DIR__ . '/inicio.part.php';
 ?>
 <body id="page-top">
 
 <?php
-  require_once __DIR__ . '/../navegacion.part.php';
+  require_once __DIR__ . '/navegacion.part.php';
 ?>
 
 <!-- Principal Content Start-->
@@ -17,7 +17,7 @@
          <div class="col-xs-12 intro">
             <div class="carousel-inner">
                <div class="item active">
-                <img class="img-responsive" src="images/about_us.jpg" alt="header picture">
+                <img class="img-responsive" src="/public/images/about_us.jpg" alt="header picture">
                </div>
                <div class="carousel-caption">
                   <h1>ABOUT US</h1>
@@ -125,7 +125,7 @@
 
       <!-- Clients Feedback -->
       <?php
-      require_once __DIR__ .'/../imagenCliente.part.php';
+      require_once __DIR__ . '/imagenCliente.part.php';
       ?>
       <!-- End of Clients Feedback --> 
        
@@ -135,7 +135,7 @@
 <!-- End of principal content -->
 
 <?php
-  require_once __DIR__ .'/../fin.part.php';
+  require_once __DIR__ . '/fin.part.php';
 ?>
 </body>
 </html>

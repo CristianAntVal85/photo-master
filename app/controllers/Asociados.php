@@ -1,12 +1,11 @@
 <?php
 
-require_once __DIR__ . '/../core/App.php';
-require_once __DIR__ . '/../src/utils/File.class.php';
-require_once __DIR__ . '/../src/utils/exceptions/FileException.class.php';
-require_once __DIR__ . '/../src/utils/exceptions/QueryException.php';
-require_once __DIR__ . '/../src/exceptions/AppException.class.php';
-require_once __DIR__ . '/../src/utils/entity/asociado.class.php';
-require_once __DIR__ . '/../src/repository/AsociadosRepository.php';
+require_once __DIR__ . '/../../src/utils/File.class.php';
+require_once __DIR__ . '/../../src/utils/exceptions/FileException.class.php';
+require_once __DIR__ . '/../../src/utils/exceptions/QueryException.php';
+require_once __DIR__ . '/../../src/exceptions/AppException.class.php';
+require_once __DIR__ . '/../../src/utils/entity/asociado.class.php';
+require_once __DIR__ . '/../../src/repository/AsociadosRepository.php';
 
 $errores = [];
 $nombre = '';
@@ -16,9 +15,6 @@ $asociado = null;
 $asociados = [];
 
 try {
-    $config = require_once __DIR__ . '/../app/config.php';
-    App::bind('config', $config);
-
     $asociadosRepository = new AsociadosRepository();
     $asociados = $asociadosRepository->findAll();
 
@@ -64,4 +60,4 @@ try {
     $errores[] = $appException->getMessage();
 }
 
-require_once __DIR__ . '/views/Asociados.view.php';
+require_once __DIR__ . '/../views/Asociados.view.php';

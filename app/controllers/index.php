@@ -1,7 +1,7 @@
 <?php 
-require_once __DIR__ . '/../src/utils/entity/Imagen.class.php';
-require_once __DIR__ . '/../src/utils/entity/asociado.class.php';
-require_once __DIR__ . '/../src/utils/Utils.class.php';
+require_once __DIR__ . '/../../src/utils/entity/Imagen.class.php';
+require_once __DIR__ . '/../../src/utils/entity/asociado.class.php';
+require_once __DIR__ . '/../../src/utils/Utils.class.php';
 
 $imagenesHome = [
     new Imagen(
@@ -89,4 +89,4 @@ if ($asociadosHomeAleatorios === null) {
     throw new RuntimeException('No se pudieron seleccionar los asociados del Home.');
 }
 
-require_once __DIR__ . '/views/index.view.php';
+require_once __DIR__ . '/../views/index.view.php';

@@ -1,16 +1,15 @@
 <?php
 
-require_once __DIR__ . '/../core/App.php';
-require_once __DIR__ . '/../src/utils/File.class.php';
-require_once __DIR__ . '/../src/utils/exceptions/FileException.class.php';
-require_once __DIR__ . '/../src/utils/exceptions/QueryException.php';
-require_once __DIR__ . '/../src/exceptions/AppException.class.php';
-require_once __DIR__ . '/../src/exceptions/CategoriaException.php';
-require_once __DIR__ . '/../src/exceptions/NotFoundException.php';
-require_once __DIR__ . '/../src/utils/entity/Imagen.class.php';
-require_once __DIR__ . '/../src/entity/Categoria.php';
-require_once __DIR__ . '/../src/repository/ImagenesRepository.php';
-require_once __DIR__ . '/../src/repository/CategoriaRepository.php';
+require_once __DIR__ . '/../../src/utils/File.class.php';
+require_once __DIR__ . '/../../src/utils/exceptions/FileException.class.php';
+require_once __DIR__ . '/../../src/utils/exceptions/QueryException.php';
+require_once __DIR__ . '/../../src/exceptions/AppException.class.php';
+require_once __DIR__ . '/../../src/exceptions/CategoriaException.php';
+require_once __DIR__ . '/../../src/exceptions/NotFoundException.php';
+require_once __DIR__ . '/../../src/utils/entity/Imagen.class.php';
+require_once __DIR__ . '/../../src/entity/Categoria.php';
+require_once __DIR__ . '/../../src/repository/ImagenesRepository.php';
+require_once __DIR__ . '/../../src/repository/CategoriaRepository.php';
 
 $errores = [];
 $titulo = "";
@@ -20,9 +19,6 @@ $imagenes = [];
 $categorias = [];
 
 try {
-    $config = require_once __DIR__ . '/../app/config.php';
-    App::bind('config', $config); // Guardamos la configuración en el contenedor de servicios
-
     $imagenesRepository = new ImagenesRepository();
     $categoriaRepository = new CategoriaRepository();
 
@@ -61,4 +57,4 @@ try {
     $errores[] = $appException->getMessage();
 }
 
-require_once __DIR__ . '/views/galery.view.php';
+require_once __DIR__ . '/../views/galery.view.php';

@@ -29,4 +29,4 @@ if (session_write_close() === false) {
     throw new RuntimeException('No se pudo guardar la sesión del formulario.');
 }
 
-require_once __DIR__ . '/views/contact.view.php';
+require_once __DIR__ . '/../views/contact.view.php';

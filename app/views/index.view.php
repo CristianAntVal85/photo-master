@@ -2,12 +2,12 @@
 
 <html lang="en">
 <?php
-  require_once __DIR__ . '/../inicio.part.php';
+  require_once __DIR__ . '/inicio.part.php';
 ?>
 <body id="page-top">
 
 <?php
-  require_once __DIR__ . '/../navegacion.part.php';
+  require_once __DIR__ . '/navegacion.part.php';
 ?>
 
 <!-- Principal Content Start -->
@@ -18,7 +18,7 @@
          <div class="col-xs-12 intro">
             <div class="carousel-inner">
                <div class="item active">
-                <img class="img-responsive" src="images/index/woman.jpg" alt="header picture">
+                <img class="img-responsive" src="/public/images/index/woman.jpg" alt="header picture">
                </div>
                <div class="carousel-caption">
                   <h1>FIND NICE PICTURES HERE</h1>
@@ -50,21 +50,21 @@
         <?php
           $idCategoria = 1;
           shuffle($imagenesHome);
-          require __DIR__ . '/../imagenIndex.part.php';
+          require __DIR__ . '/imagenIndex.part.php';
         ?>
 
         <!-- second category pictures -->
         <?php
           $idCategoria = 2;
           shuffle($imagenesHome);
-          require __DIR__ . '/../imagenIndex.part.php';
+          require __DIR__ . '/imagenIndex.part.php';
         ?>
 
         <!-- Third Category Pictures -->
         <?php
           $idCategoria = 3;
           shuffle($imagenesHome);
-          require __DIR__ . '/../imagenIndex.part.php';
+          require __DIR__ . '/imagenIndex.part.php';
         ?>
 
         </div>
@@ -93,7 +93,7 @@
    </div><!-- End of index box -->
 
 <?php
-  require_once __DIR__ .'/../fin.part.php';
+  require_once __DIR__ . '/fin.part.php';
 ?>
 </body>
 </html>
