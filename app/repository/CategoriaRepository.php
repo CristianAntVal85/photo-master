@@ -1,7 +1,10 @@
 <?php
 
-require_once __DIR__ . '/../database/QueryBuilder.php';
-require_once __DIR__ . '/../entity/Categoria.php';
+namespace dwes\app\repository;
+
+use dwes\app\entity\Categoria;
+use dwes\app\exceptions\QueryException;
+use dwes\core\database\QueryBuilder;
 
 class CategoriaRepository extends QueryBuilder
 {
@@ -9,7 +12,7 @@ class CategoriaRepository extends QueryBuilder
      * @param string $table
      * @param string $classEntity
      */
-    public function __construct(string $table = 'categorias', string $classEntity = 'Categoria')
+    public function __construct(string $table = 'categorias', string $classEntity = Categoria::class)
     {
         parent::__construct($table, $classEntity);
     }
@@ -26,9 +29,4 @@ class CategoriaRepository extends QueryBuilder
         $categoria->setNumImagenes($categoria->getNumImagenes() + 1);
         $this->update($categoria);
     }
-}
-
-// Alias para permitir tanto CategoriaRepository como CategoriasRepository
-class CategoriasRepository extends CategoriaRepository
-{
 }

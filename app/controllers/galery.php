@@ -1,9 +1,10 @@
 <?php
 
-require_once __DIR__ . '/../../src/utils/exceptions/QueryException.php';
-require_once __DIR__ . '/../../src/exceptions/AppException.class.php';
-require_once __DIR__ . '/../../src/repository/ImagenesRepository.php';
-require_once __DIR__ . '/../../src/repository/CategoriaRepository.php';
+use dwes\app\exceptions\AppException;
+use dwes\app\exceptions\QueryException;
+use dwes\app\repository\CategoriaRepository;
+use dwes\app\repository\ImagenesRepository;
+use dwes\core\App;
 
 $errores = $errores ?? [];
 $titulo = $titulo ?? '';

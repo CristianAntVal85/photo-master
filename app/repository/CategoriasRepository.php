@@ -1,2 +1,7 @@
 <?php
-require_once __DIR__ . '/CategoriaRepository.php';
+
+namespace dwes\app\repository;
+
+class CategoriasRepository extends CategoriaRepository
+{
+}

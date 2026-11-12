@@ -1,7 +1,11 @@
 <?php
 
-require_once __DIR__ . '/../../core/App.php';
-require_once __DIR__ . '/../exceptions/AppException.class.php';
+namespace dwes\core\database;
+
+use PDO;
+use PDOException;
+use dwes\app\exceptions\AppException;
+use dwes\core\App;
 
 class Connection
 {

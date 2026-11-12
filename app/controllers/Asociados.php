@@ -1,11 +1,12 @@
 <?php
 
-require_once __DIR__ . '/../../src/utils/File.class.php';
-require_once __DIR__ . '/../../src/utils/exceptions/FileException.class.php';
-require_once __DIR__ . '/../../src/utils/exceptions/QueryException.php';
-require_once __DIR__ . '/../../src/exceptions/AppException.class.php';
-require_once __DIR__ . '/../../src/utils/entity/asociado.class.php';
-require_once __DIR__ . '/../../src/repository/AsociadosRepository.php';
+use dwes\app\entity\Asociado;
+use dwes\app\exceptions\AppException;
+use dwes\app\exceptions\FileException;
+use dwes\app\exceptions\QueryException;
+use dwes\app\repository\AsociadosRepository;
+use dwes\app\utils\File;
+use dwes\core\App;
 
 $errores = [];
 $nombre = '';

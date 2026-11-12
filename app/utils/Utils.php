@@ -1,5 +1,7 @@
 <?php
 
+namespace dwes\app\utils;
+
 class Utils {
 
     public static function extraeElementosAleatorios(array $lista, int $cantidad): ?array
@@ -19,6 +21,17 @@ class Utils {
         $opcion = '/' . trim($opcion, '/');
 
         return $rutaActual === $opcion;
+    }
+
+    public static function existeOpcionMenuActivaEnArray(array $opciones): bool
+    {
+        foreach ($opciones as $opcionMenu) {
+            if (self::esOpcionMenuActiva($opcionMenu)) {
+                return true;
+            }
+        }
+
+        return false;
     }
 }
 ?>

@@ -1,5 +1,9 @@
 <?php
 
+namespace dwes\core;
+
+use dwes\app\exceptions\NotFoundException;
+
 class Router
 {
     private $routes;

@@ -1,13 +1,14 @@
 <?php
 
-require_once __DIR__ . '/../../src/utils/File.class.php';
-require_once __DIR__ . '/../../src/utils/exceptions/FileException.class.php';
-require_once __DIR__ . '/../../src/utils/exceptions/QueryException.php';
-require_once __DIR__ . '/../../src/exceptions/AppException.class.php';
-require_once __DIR__ . '/../../src/exceptions/CategoriaException.php';
-require_once __DIR__ . '/../../src/exceptions/NotFoundException.php';
-require_once __DIR__ . '/../../src/utils/entity/Imagen.class.php';
-require_once __DIR__ . '/../../src/repository/ImagenesRepository.php';
+use dwes\app\entity\Imagen;
+use dwes\app\exceptions\AppException;
+use dwes\app\exceptions\CategoriaException;
+use dwes\app\exceptions\FileException;
+use dwes\app\exceptions\NotFoundException;
+use dwes\app\exceptions\QueryException;
+use dwes\app\repository\ImagenesRepository;
+use dwes\app\utils\File;
+use dwes\core\App;
 
 $errores = [];
 $titulo = trim(htmlspecialchars($_POST['titulo'] ?? ''));
@@ -29,6 +30,7 @@ try {
 
     $imagenGaleria = new Imagen($imagen->getFileName(), $descripcion, $categoria);
     $imagenesRepository->guarda($imagenGaleria);
+    App::get('logger')->add('Se ha guardado una imagen: ' . $imagenGaleria->getNombre());
 
     App::get('router')->redirect('galeria');
     exit;

@@ -1,5 +1,6 @@
-<?php 
-  require_once __DIR__ . '/../../src/utils/Utils.class.php';
+<?php
+
+use dwes\app\utils\Utils;
 ?> 
 
 <!-- Navigation Bar -->

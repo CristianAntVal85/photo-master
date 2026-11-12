@@ -1,0 +1,10 @@
+{
+    "require": {
+        "monolog/monolog": "^3.12"
+    },
+    "autoload": {
+        "psr-4": {
+            "dwes\\": ""
+        }
+    }
+}

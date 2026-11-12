@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . '/IEntity.php';
+namespace dwes\app\entity;
 
 class Categoria implements IEntity
 {

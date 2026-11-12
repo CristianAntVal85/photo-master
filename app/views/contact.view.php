@@ -58,7 +58,7 @@
 	       	  		<textarea class="form-control"></textarea>
 					 <!-- CAPTCAHA --> 
 	       	  		<label class="label-control" for="captcha">Introduce el CAPTCHA:</label>
-	       	  		<img src="/src/utils/captcha.php?v=<?= htmlspecialchars($captchaImageToken, ENT_QUOTES, 'UTF-8'); ?>" alt="Imagen CAPTCHA">
+                <img src="/app/utils/captcha.php?v=<?= htmlspecialchars($captchaImageToken, ENT_QUOTES, 'UTF-8'); ?>" alt="Imagen CAPTCHA">
 	       	  		<input class="form-control" id="captcha" name="captcha" type="text">
 	       	  		<button class="pull-right btn btn-lg sr-button" type="submit">SEND</button>
 	       	  	</div>

@@ -17,3 +17,5 @@
 !/public/images/asociados/log1.jpg
 !/public/images/asociados/log2.jpg
 !/public/images/asociados/log3.jpg
+vendor/
+logs/*.log

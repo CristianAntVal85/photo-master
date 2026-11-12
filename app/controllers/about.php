@@ -1,5 +1,6 @@
 <?php
-require_once __DIR__ . '/../../src/utils/entity/Imagen.class.php';
+
+use dwes\app\entity\Imagen;
 
 /**
  * @var Imagen[]

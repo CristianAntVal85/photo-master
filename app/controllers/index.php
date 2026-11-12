@@ -1,7 +1,8 @@
-<?php 
-require_once __DIR__ . '/../../src/utils/entity/Imagen.class.php';
-require_once __DIR__ . '/../../src/utils/entity/asociado.class.php';
-require_once __DIR__ . '/../../src/utils/Utils.class.php';
+<?php
+
+use dwes\app\entity\Asociado;
+use dwes\app\entity\Imagen;
+use dwes\app\utils\Utils;
 
 $imagenesHome = [
     new Imagen(
