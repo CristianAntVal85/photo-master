@@ -29,33 +29,33 @@
 	       		<?php endif; ?>
 	       	</div>
 	       <?php endif; ?>
-	       <form class="form-horizontal" action="<?= htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES, 'UTF-8'); ?>" method="post">
+	       <form class="form-horizontal" action="/contact/enviar" method="post" enctype="multipart/form-data">
 	       	  <div class="form-group">
 	       	  	<div class="col-xs-6">
 	       	  	    <label class="label-control">First Name</label>
-	       	  		<input class="form-control" type="text">
+                    <input class="form-control" type="text" name="nombre" required>
 	       	  	</div>
 	       	  	<div class="col-xs-6">
 	       	  	    <label class="label-control">Last Name</label>
-	       	  		<input class="form-control" type="text">
+                    <input class="form-control" type="text" name="apellidos">
 	       	  	</div>
 	       	  </div>
 	       	  <div class="form-group">
 	       	  	<div class="col-xs-12">
 	       	  		<label class="label-control">Email</label>
-	       	  		<input class="form-control" type="text">
+                    <input class="form-control" type="email" name="email" required>
 	       	  	</div>
 	       	  </div>
 	       	  <div class="form-group">
 	       	  	<div class="col-xs-12">
 	       	  		<label class="label-control">Subject</label>
-	       	  		<input class="form-control" type="text">
+                    <input class="form-control" type="text" name="asunto" required>
 	       	  	</div>
 	       	  </div>
 	       	  <div class="form-group">
 	       	  	<div class="col-xs-12">
 	       	  		<label class="label-control">Message</label>
-	       	  		<textarea class="form-control"></textarea>
+                    <textarea class="form-control" name="mensaje"></textarea>
 					 <!-- CAPTCAHA --> 
 	       	  		<label class="label-control" for="captcha">Introduce el CAPTCHA:</label>
                 <img src="/app/utils/captcha.php?v=<?= htmlspecialchars($captchaImageToken, ENT_QUOTES, 'UTF-8'); ?>" alt="Imagen CAPTCHA">
