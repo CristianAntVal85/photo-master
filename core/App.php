@@ -4,6 +4,8 @@ namespace dwes\core;
 
 use dwes\app\exceptions\AppException;
 use dwes\core\database\Connection;
+use dwes\core\database\QueryBuilder;
+use PDO;
 
 class App
 {
@@ -55,5 +57,20 @@ class App
         }
 
         return static::$container['connection'];
+    }
+
+    /**
+     * Obtiene una instancia singleton del repositorio indicado
+     *
+     * @param string $className
+     * @return QueryBuilder
+     */
+    public static function getRepository(string $className): QueryBuilder
+    {
+        if (!array_key_exists($className, static::$container)) {
+            static::$container[$className] = new $className();
+        }
+
+        return static::$container[$className];
     }
 }

@@ -12,6 +12,16 @@ return [
             PDO::ATTR_PERSISTENT => true
         ]
     ],
+    'logs' => [
+        'filename' => 'curso.log',
+        'level' => \Monolog\Logger::WARNING
+    ],
+    'routes' => [
+        'filename' => 'routes.php'
+    ],
+    'project' => [
+        'namespace' => 'dwes'
+    ],
     'mailer' => [
         'smtp_server' => 'smtp.gmail.com',
         'smtp_port' => 587,

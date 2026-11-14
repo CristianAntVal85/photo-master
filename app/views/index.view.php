@@ -1,15 +1,3 @@
-<!DOCTYPE html>  
-
-<html lang="en">
-<?php
-  require_once __DIR__ . '/inicio.part.php';
-?>
-<body id="page-top">
-
-<?php
-  require_once __DIR__ . '/navegacion.part.php';
-?>
-
 <!-- Principal Content Start -->
    <div id="index">
 
@@ -91,9 +79,3 @@
     <!-- End of Box within partners name and logo -->
 
    </div><!-- End of index box -->
-
-<?php
-  require_once __DIR__ . '/fin.part.php';
-?>
-</body>
-</html>

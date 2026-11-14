@@ -6,6 +6,7 @@ use dwes\app\entity\Categoria;
 use dwes\app\entity\Imagen;
 use dwes\app\exceptions\NotFoundException;
 use dwes\app\exceptions\QueryException;
+use dwes\core\App;
 use dwes\core\database\QueryBuilder;
 
 class ImagenesRepository extends QueryBuilder
@@ -29,7 +30,7 @@ class ImagenesRepository extends QueryBuilder
      */
     public function getCategoria(Imagen $imagenGaleria): Categoria
     {
-        $categoriaRepository = new CategoriaRepository();
+        $categoriaRepository = App::getRepository(CategoriaRepository::class);
         return $categoriaRepository->find((int)$imagenGaleria->getCategoria());
     }
 
@@ -45,7 +46,7 @@ class ImagenesRepository extends QueryBuilder
     {
         $fnGuardaImagen = function () use ($imagenGaleria) { // Creamos una función anónima que se llama como callable
             $categoria = $this->getCategoria($imagenGaleria);
-            $categoriaRepository = new CategoriasRepository();
+            $categoriaRepository = App::getRepository(CategoriasRepository::class);
             $categoriaRepository->nuevaImagen($categoria);
             $this->save($imagenGaleria);
         };

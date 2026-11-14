@@ -1,14 +1,3 @@
-<!DOCTYPE html>
-<html>
-<?php
-	require_once __DIR__ . '/inicio.part.php';
-?>
-<body id="page-top">
-
-<?php
-	require_once __DIR__ . '/navegacion.part.php';
-?>
-
 <!-- Principal Content Start -->
    <div id="contact">
    	  <div class="container">
@@ -69,29 +58,8 @@
 	           <h3>GET IN TOUCH</h3>
 	           <hr>
 	           <p>Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero.</p>
-		       <div class="ending text-center">
-			        <ul class="list-inline social-buttons">
-			            <li><a href="#"><i class="fa fa-facebook sr-icons"></i></a>
-			            </li>
-			            <li><a href="#"><i class="fa fa-twitter sr-icons"></i></a>
-			            </li>
-			            <li><a href="#"><i class="fa fa-google-plus sr-icons"></i></a>
-			            </li>
-			        </ul>
-				    <ul class="list-inline contact">
-				       <li class="footer-number"><i class="fa fa-phone sr-icons"></i>  (00228)92229954 </li>
-				       <li><i class="fa fa-envelope sr-icons"></i>  kouvenceslas93@gmail.com</li>
-				    </ul>
-				    <p>Photography Fanatic Template &copy; 2017</p>
-		       </div>
 	       </div>
 	    </div>   
    	  </div>
    </div>
 <!-- Principal Content Start -->
-
-<?php
-	require_once __DIR__ . '/fin.part.php';
-?>
-</body>
-</html>
