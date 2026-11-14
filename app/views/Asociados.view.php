@@ -1,7 +1,3 @@
-<?php
-require_once __DIR__ . '/inicio.part.php';
-require_once __DIR__ . '/navegacion.part.php';
-?>
 <div class="container">
     <div class="row">
         <div class="col-xs-12 col-sm-8 col-sm-push-2">
@@ -75,4 +71,3 @@ require_once __DIR__ . '/navegacion.part.php';
         </div>
     </div>
 </div>
-<?php require_once __DIR__ . '/fin.part.php'; ?>

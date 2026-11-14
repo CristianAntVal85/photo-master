@@ -1,14 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<?php
-  require_once __DIR__ . '/inicio.part.php';
-?>
-<body id="page-top">
-
-<?php
-  require_once __DIR__ . '/navegacion.part.php';
-?>
-
 <!-- Principal Content Start-->
    <div id="about">
 
@@ -48,74 +37,70 @@
            </div>
         </div>
         <div class="row">
-           <div class="col-xs-12 col-sm-6 row">
-             <ul class="list-inline text-center">
-                <li class="line"></li>
-              <li><i class="fa fa-tasks fa-2x"></i></li>
-              <li class="line"></li>
-              <li><h4>Our Services</h4></li>
-              <li class="line"></li>
-             </ul>
-             <p class="text-muted text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Tempora ea ratione vel nisi, qui perferendis nulla, fugit aut, beatae, tempore modi.</p>
-           </div>
-           <div class="col-xs-12 col-sm-6">
-             <p class="text-muted"><strong>PHOTOSHOP</strong> <span class="pull-right">80%</span></p>
-             <div class="progress">
-              <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width:80%;"></div>
-             </div>
-             <p class="text-muted"><strong>SHOOTING PHOTO </strong><span class="pull-right">95%</span></p>
-             <div class="progress">
-              <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100" style="width:95%;"></div>
-             </div>
-             <p class="text-muted"><strong>FORMATION</strong><span class="pull-right">90%</span></p>
-             <div class="progress">
-              <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width:90%;"></div>
-             </div>
-           </div>
+          <div class="col-xs-12 col-sm-6">
+            <div class="box-about">
+              <i class="fa fa-comments-o fa-2x"></i>
+              <h4>Top-Notch Support</h4>
+              <p class="text-left text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Tempora ea ratione vel nisi, qui perferendis nulla, fugit aut, beatae, tempore modi. Minus sequi iste, nam nobis, excepturi.Ut enim ad enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure.</p>
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-6">
+            <div class="box-about">
+              <i class="fa fa-pencil-square-o fa-2x"></i>
+              <h4>Responsive Design</h4>
+              <p class="text-left text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Tempora ea ratione vel nisi, qui perferendis nulla, fugit aut, beatae, tempore modi. Minus sequi iste, nam nobis, excepturi.Ut enim ad enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure.</p>
+            </div>
+          </div>
         </div>
 
-      <!-- Pricing Tables -->  
+      <!-- Pricing Tables -->
         <div class="row pricing text-center">
-          <h3>FORMATION PRICING TABLES</h3>
+          <h3>FORMATION PRICING CODES</h3>
           <hr>
-          <div class="col-xs-12 col-sm-4 first">
-            <div class="beginner">
-              <h4>BEGINNER</h4>
-              <h5>$99.97</h5>
-              <ul class="nav">
-                <li>Beginner Option I</li>
-                <li>Beginner Option II</li>
-                <li>Beginner Option III</li>
-                <li>Beginner Option IV</li>
-                <li>Beginner Option V</li>
+          <div class="col-xs-12 col-sm-4 col-md-3 col-md-push-1">
+            <div class="plan">
+              <div class="plan-title">
+               <h2>STARTER</h2>
+               <h3>$99</h3>
+               <small>Per month</small>
+              </div>
+              <ul class="plan-features">
+                 <li>Free Support</li>
+                 <li>1 Year Inital Charge</li>
+                 <li>Photo Promotion</li>
+                 <li>10% Discount</li>
               </ul>
               <a href="#" class="btn btn-lg sr-button">SIGN UP</a>
             </div>
           </div>
-          <div class="col-xs-12 col-sm-4 middle">
-            <div class="intermediary">
-              <h4>INTERMEDIARY</h4>
-              <h5>$199.97</h5>
-              <ul class="nav">
-                <li>Intermediary Option I</li>
-                <li>Intermediary Option II</li>
-                <li>Intermediary Option III</li>
-                <li>Intermediary Option IV</li>
-                <li>Intermediary Option V</li>
+          <div class="col-xs-12 col-sm-4 col-md-3 col-md-push-1">
+            <div class="plan standard">
+              <div class="plan-title">
+               <h2>STANDARD</h2>
+               <h3>$199</h3>
+               <small>Per month</small>
+              </div>
+              <ul class="plan-features">
+                 <li>Free Support</li>
+                 <li>2 Year Inital Charge</li>
+                 <li>Photo Promotion</li>
+                 <li>Free Registration</li>
               </ul>
               <a href="#" class="btn btn-lg sr-button">SIGN UP</a>
             </div>
           </div>
-          <div class="col-xs-12 col-sm-4">
-            <div class="higher">
-              <h4>PROFESSIONAL</h4>
-              <h5>$299.97</h5>
-              <ul class="nav">
-                <li>High Option I</li>
-                <li>High Option II</li>
-                <li>High Option III</li>
-                <li>High Option IV</li>
-                <li>High Option V</li>
+          <div class="col-xs-12 col-sm-4 col-md-3 col-md-push-1">
+            <div class="plan">
+              <div class="plan-title">
+               <h2>PROFESSIONAL</h2>
+               <h3>$299</h3>
+               <small>Per month</small>
+              </div>
+              <ul class="plan-features">
+                 <li>Free Support</li>
+                 <li>3 Year Inital Charge</li>
+                 <li>Photo Promotion</li>
+                 <li>20% Discount</li>
               </ul>
               <a href="#" class="btn btn-lg sr-button">SIGN UP</a>
             </div>
@@ -133,9 +118,3 @@
     <!-- End of container Box -->  
    </div>
 <!-- End of principal content -->
-
-<?php
-  require_once __DIR__ . '/fin.part.php';
-?>
-</body>
-</html>
